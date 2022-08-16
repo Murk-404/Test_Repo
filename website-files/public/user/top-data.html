@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-16">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spotimation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="\jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="\images\spotimation_new.png" alt="logo" width="15%">
+      <nav>
+        <ul class="nav_links">
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="http://localhost:4000/about/about.html">About</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#"><button>Contact</button></a>
+    </header>
+  </body>
+  <body>
+    <div style="width: 100%;">
+      <!-- <p>how do web design??</p> -->
+      <div class="center">
+        <!-- <input type="submit"value="Find" style="float: right" />
+        <div style="overflow: hidden; padding-right: .5em;">
+          <input type="text" style="width: 100%;" />
+        </div> -->
+        <div class="container">
+          <table class="styled-table">
+            <thead>
+                <tr>
+                  <th></th>
+                  <th>Track:</th>
+                  <th>Artist:</th>
+                  <th></th>
+                </tr>
+            </thead>
+            <tbody id="thetable">
+              <script>
+                // window.addEventListener("load", () => {
+                window.onload = function(){
+
+                  var http = new XMLHttpRequest();
+
+                  
+
+                  http.onreadystatechange = function(){
+                    if(http.readyState == 4 && http.status == 200){
+                      run(JSON.parse(http.response));
+                      // http.open("GET", "/_top_tracks_art_long_term_fullmtyl.json", true);
+                    }
+                    
+                  }
+                  // run(JSON.parse(http.response));
+
+                  var tracks = http.open("GET", "/App_Users/fullmtyl/_top_tracks_long_term_fullmtyl.json", true);
+                  http.send();
+
+
+                  // (A) GET HTML LIST                 
+                  // (B) DATA
+                  // var tracks = ["The Garden", "Born to Trouble", "IGOR'S THEME", "Luv(sic.) pt3 (feat. Shing02)", "Never Meant", "Luv (sic)", "SIR BAUDELAIRE (feat. DJ Drama)", "10/10", "Now You Know", "Movin' Out (Anthony's Song)", "Alfonso Muskedunder", "WOLF", "Tiger of San Pedro", "WUSYANAME (feat. Youngboy Never Broke Again & Ty Dolla $ign)", "Hotdog.Jpeg", "EARFQUAKE", "GONE, GONE / THANK YOU", "Close To You", "WILSHIRE", "Palace/Curse (feat. Tyler, The Creator & Steve Lacy)", "Star Shopping", "Anybody Have a Map?", "How Do You Like Me Now?!", "Striving After Wind", "Silhouettes", "RUNAWAY", "Break This The Breaking Point 2", "Answer", "On the Level", "I THINK", "Foreword (feat. Rex Orange County)", "Doomsday", "Mrs Magic", "F Song", "December", "NEW MAGIC WAND", "then i can go home...", "Stal", "Moon River", "What Once Was", "Pothole (feat. Jaden Smith)", "Sky", "Always", "O Ephraim", "More Than A Woman - From \"Saturday Night Fever\" Soundtrack", "Evil Fantasy", "On the Level", "Deceptacon", "PUPPET", "Magnolia", "A Mis Abuelos", "Tv Talk Show Intro Music", "I DON'T LOVE YOU ANYMORE", "Blinding Lights", "Mamma Mia", "Atomic Vomit", "Yi", "HOT WIND BLOWS (feat. Lil Wayne)", "Watermelon Man", "Boredom (feat. Rex Orange County & Anna of the North)", "Breathe", "Turn Around", "Luv (sic.) pt3 (feat. Shing02)", "Everlong", "A BOY IS A GUN*", "Keep On", "why me", "Atlas", "Hey Ya!", "Overture/Big Bright Beautiful World", "One of These Nights - 2013 Remaster", "Sunrise", "CORSO", "ok ok?", "Intro", "Riding the Bavarian Sidecar", "help herself", "SWEET / I THOUGHT YOU WANTED TO DANCE (feat. Brent Faiyaz & Fana Hues)", "Finding Gabriel", "Paranoid Android I", "24B/WHATUNEED", "10/10", "RUNNING OUT OF TIME", "Mirror", "The Banana Dance", "Good Day", "Feeling Lonely", "Sonderland", "H\u00f8jder", "London Still", "Where This Flower Blooms (feat. Frank Ocean)", "Decks Dark", "Head In The Clouds", "Wizard of Meh", "Naeem", "Waving Through A Window", "I Am Trying to Break Your Heart", "Los Pollos Hermanos", "Hello It's Me"];
+
+                  var artists = ["Brad Mehldau", "Brad Mehldau", "Tyler, The Creator", "Nujabes", "American Football", "Nujabes", "Tyler, The Creator", "Rex Orange County", "Will Paquin", "Billy Joel", "Todd Terje", "Tyler, The Creator", "John La Barbera Big Band", "Tyler, The Creator", "No Sweater", "Tyler, The Creator", "Tyler, The Creator", "Dayglow", "Tyler, The Creator", "The Internet", "Lil Peep", "Rachel Bay Jones", "Toby Keith", "Brad Mehldau", "American Football", "half\u2022alive", "Vertigoaway", "Tyler, The Creator", "Mac DeMarco", "Tyler, The Creator", "Tyler, The Creator", "MF DOOM", "Strawberry Guy", "Strawberry Guy", "Neck Deep", "Tyler, The Creator", "datfootdive", "C418", "Jacob Collier", "Her's", "Tyler, The Creator", "Playboi Carti", "Rex Orange County", "Brad Mehldau", "Bee Gees", "Freddie Dredd", "Mac DeMarco", "Le Tigre", "Tyler, The Creator", "Playboi Carti", "Arturo Sandoval", "Radio City", "Tyler, The Creator", "The Weeknd", "Austin Weber", "Steve Lacy", "Bon Iver", "Tyler, The Creator", "Herbie Hancock", "Tyler, The Creator", "Alfa Mist", "Seiji Igusa", "Nujabes", "Foo Fighters", "Tyler, The Creator", "Alfa Mist", "LoneMoon", "Home", "Outkast", "Brian D'Arcy James", "Eagles", "Coldplay", "Tyler, The Creator", "half\u2022alive", "Home", "Ryan Haines Big Band", "bbno$", "Tyler, The Creator", "Brad Mehldau", "Brad Mehldau", "kaystrueno", "Rex Orange County", "Tyler, The Creator", "Kendrick Lamar", "beef", "Nappy Roots", "boy pablo", "Neck Deep", "Bremer/McCoy", "The Waifs", "Tyler, The Creator", "Radiohead", "88rising", "Pogo", "Bon Iver", "Ben Platt", "Wilco", "Knucks", "Todd Rundgren"];
+
+                  var art = ["https://i.scdn.co/image/ab67616d00004851f6130763d13db0a96980cc28", "https://i.scdn.co/image/ab67616d00004851f6130763d13db0a96980cc28", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d00004851912cc8fe2e9a53d328757a41", "https://i.scdn.co/image/ab67616d00004851d6dfafe62fef3ad433ff77d8", "https://i.scdn.co/image/ab67616d000048511a1ba7785a4b91c8aee7a79c", "https://i.scdn.co/image/ab67616d00004851696b4e67423edd64784bfbb4", "https://i.scdn.co/image/ab67616d00004851733e6d7818eef87d20df86b5", "https://i.scdn.co/image/ab67616d00004851071853baa522ab44f8c98b47", "https://i.scdn.co/image/ab67616d000048518a6dbac0b74bd2484189ea5f", "https://i.scdn.co/image/ab67616d00004851e92e2ccb32e1b3e58766bd93", "https://i.scdn.co/image/ab67616d000048516be6806a01c452f360cab678", "https://i.scdn.co/image/ab67616d00004851031cd8c538c6d2b3739dbd3e", "https://i.scdn.co/image/ab67616d00004851696b4e67423edd64784bfbb4", "https://i.scdn.co/image/ab67616d000048514c502ed3f4250e2b6686161d", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d00004851a28330e1b98a8d1c39e06389", "https://i.scdn.co/image/ab67616d00004851696b4e67423edd64784bfbb4", "https://i.scdn.co/image/ab67616d000048511c1c33c63cdbcb5788975a93", "https://i.scdn.co/image/ab67616d00004851e813c020ab6245eae154ec16", "https://i.scdn.co/image/ab67616d00004851eefa3ed06dec22db89d0e793", "https://i.scdn.co/image/ab67616d00004851d241324e9e9f14f83f293c5a", "https://i.scdn.co/image/ab67616d00004851f6130763d13db0a96980cc28", "https://i.scdn.co/image/ab67616d000048514d4241ec9267eb696aab8bb0", "https://i.scdn.co/image/ab67616d00004851f89d2d949f9671982e9e732c", "https://i.scdn.co/image/ab67616d00004851968a7c4556d2545f4fd8da78", "https://i.scdn.co/image/ab67616d000048516be6806a01c452f360cab678", "https://i.scdn.co/image/ab67616d00004851d18fa8f63707115cb1b38f65", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d000048518940ac99f49e44f59e6f7fb3", "https://i.scdn.co/image/ab67616d00004851f56213eede5f2e6a6065fb6d", "https://i.scdn.co/image/ab67616d00004851c7bf2d32338df6a5ba68d3a5", "https://i.scdn.co/image/ab67616d000048516cfe31d4e5d58710add69045", "https://i.scdn.co/image/ab67616d0000485182a3560435840c14a72f6b6e", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d00004851cb0f12240d5cd77b75944312", "https://i.scdn.co/image/ab67616d000048514cf0b29eb06a92aa96acae64", "https://i.scdn.co/image/ab67616d000048512ad52a8d9f66af63d3b0ce15", "https://i.scdn.co/image/ab67616d00004851fc1bc1cf80c431c2bdbde601", "https://i.scdn.co/image/ab67616d000048518940ac99f49e44f59e6f7fb3", "https://i.scdn.co/image/ab67616d0000485198ea0e689c91f8fea726d9bb", "https://i.scdn.co/image/ab67616d00004851733e6d7818eef87d20df86b5", "https://i.scdn.co/image/ab67616d00004851f6130763d13db0a96980cc28", "https://i.scdn.co/image/ab67616d00004851a1f748bf1c1e69b3e36a21ea", "https://i.scdn.co/image/ab67616d00004851e2119f640f9cdf0dd9c87816", "https://i.scdn.co/image/ab67616d0000485198526846ff341ae71e5c3818", "https://i.scdn.co/image/ab67616d000048515a89b59fec31efd8f780a6bb", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d00004851e31a279d267f3b3d8912e6f1", "https://i.scdn.co/image/ab67616d000048511109587ed40c4f03fbbf27eb", "https://i.scdn.co/image/ab67616d0000485188fc2de137e6267a4812f747", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d00004851c464fabb4e51b72d657f779a", "https://i.scdn.co/image/ab67616d000048512901a72640ae44861619312f", "https://i.scdn.co/image/ab67616d00004851c3545bbe806b845c2b52bc20", "https://i.scdn.co/image/ab67616d000048515cc90d375ab1e4423615654c", "https://i.scdn.co/image/ab67616d00004851696b4e67423edd64784bfbb4", "https://i.scdn.co/image/ab67616d000048516b75d57d2d070c0c4afb3f9a", "https://i.scdn.co/image/ab67616d000048518940ac99f49e44f59e6f7fb3", "https://i.scdn.co/image/ab67616d000048515d46b069ef33382b235b296a", "https://i.scdn.co/image/ab67616d00004851cf2b9772245dce9f8e8cb527", "https://i.scdn.co/image/ab67616d000048511a1ba7785a4b91c8aee7a79c", "https://i.scdn.co/image/ab67616d000048510389027010b78a5e7dce426b", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d000048515d46b069ef33382b235b296a", "https://i.scdn.co/image/ab67616d00004851b6b43960e695efdc3157d3b1", "https://i.scdn.co/image/ab67616d000048511a58e296ff48e9d5ef171953", "https://i.scdn.co/image/ab67616d000048516a6387ab37f64034cdc7b367", "https://i.scdn.co/image/ab67616d00004851cc0561d9d52d426161e808da", "https://i.scdn.co/image/ab67616d000048515d0a8e54aba5181c79593b94", "https://i.scdn.co/image/ab67616d00004851733913465adb99353020b805", "https://i.scdn.co/image/ab67616d00004851696b4e67423edd64784bfbb4", "https://i.scdn.co/image/ab67616d00004851f89d2d949f9671982e9e732c", "https://i.scdn.co/image/ab67616d00004851f421e4ca838fe19d8cdf934a", "https://i.scdn.co/image/ab67616d0000485114d093f98f143756ad6740d4", "https://i.scdn.co/image/ab67616d00004851cf614ee721dfd6597b5a8ea7", "https://i.scdn.co/image/ab67616d00004851696b4e67423edd64784bfbb4", "https://i.scdn.co/image/ab67616d00004851f6130763d13db0a96980cc28", "https://i.scdn.co/image/ab67616d0000485162aca756ab488183d7909156", "https://i.scdn.co/image/ab67616d00004851ed64397bc507feb79ea8fff6", "https://i.scdn.co/image/ab67616d0000485128c886d8404a6c9ee594464d", "https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57", "https://i.scdn.co/image/ab67616d00004851f30764d5fa1e439ad6a7742f", "https://i.scdn.co/image/ab67616d00004851af6e7a7c80f09f4985e8114e", "https://i.scdn.co/image/ab67616d00004851f9fde61817e49769b3d89131", "https://i.scdn.co/image/ab67616d000048518d7d3584e5220d0cd406eea4", "https://i.scdn.co/image/ab67616d000048513a278953d20b499818ed7dae", "https://i.scdn.co/image/ab67616d00004851b709268773f79e471691b609", "https://i.scdn.co/image/ab67616d000048515ed486dc31ae86b682601a9d", "https://i.scdn.co/image/ab67616d000048518940ac99f49e44f59e6f7fb3", "https://i.scdn.co/image/ab67616d0000485145643f5cf119cbc9d2811c22", "https://i.scdn.co/image/ab67616d000048514aedbebc17bc6ebccad220e9", "https://i.scdn.co/image/ab67616d0000485194435ed6fb89381daad8e3a3", "https://i.scdn.co/image/ab67616d000048515cc90d375ab1e4423615654c", "https://i.scdn.co/image/ab67616d00004851eefa3ed06dec22db89d0e793", "https://i.scdn.co/image/ab67616d00004851f53fbb4abe27c792221e5c27", "https://i.scdn.co/image/ab67616d000048512212e7a4fa799470426f41bc", "https://i.scdn.co/image/ab67616d0000485160c24c30fc60a17650ffc96a"];
+                  function run(tracks){
+                    var tbody = document.getElementById("thetable");
+                    for (let idx in tracks) {
+                      var x = parseInt(idx)+1;
+                      var tr = document.createElement("tr");
+                      tr.id = "item-" + idx; // set id
+                      for (let i = 0; i < 4; i++) {
+                        var td = document.createElement("td");
+                        if(i==0){
+                          var str = "<img style='border:4px solid #363333'src='" + art[idx] + "'>";
+                          // console.log(str);
+                          td.innerHTML = str;
+                        }
+                        else if(i==1){
+                          td.innerHTML = tracks[idx];
+                        }
+                        else if(i==2){
+                          td.innerHTML = artists[idx];
+                        }
+                        else if(i==3){
+                          td.innerHTML = x;
+                        }
+                        tr.appendChild(td);
+                      }
+                      tbody.appendChild(tr);
+                    }
+                  }
+                };
+                </script>
+                <!-- <tr class="active-row">
+                  <td><img style="border:4px solid #363333"src="https://i.scdn.co/image/ab67616d00004851f6130763d13db0a96980cc28"></td>
+                  <td>Born to Trouble</td>
+                  <td>Brad Mehldau</td>
+                  <td>#1</td>
+                </tr>
+                <tr class="active-row">
+                  <td><img style="border:4px solid #363333"src="https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57"></td>
+                  <td>IGOR's THEME</td>
+                  <td>Tyler, The Creator</td>
+                  <td>#2</td>
+                </tr>
+                <tr class="active-row">
+                  <td><img style="border:4px solid #363333"src="https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57"></td>
+                  <td>IGOR's THEME</td>
+                  <td>Tyler, The Creator</td>
+                  <td>#3</td>
+                </tr> -->
+              </tbody>
+          </table>
+          <!-- <table>
+            <tr>
+              <td>Image:</td>
+              <td>Artist:</td>
+              <td>Track:</td>
+              <td>Info:</td>
+            </tr>
+            <tr>
+              <td><img src="https://i.scdn.co/image/ab67616d00004851f6130763d13db0a96980cc28"></td>
+              <td>Born to Trouble</td>
+              <td>Brad Mehldau</td>
+              <td>Jazz</td>
+            </tr>
+            <tr>
+              <td><img src="https://i.scdn.co/image/ab67616d000048517005885df706891a3c182a57"></td>
+              <td>IGOR's THEME</td>
+              <td>Tyler, The Creator</td>
+              <td>Hip-Hop</td>
+            </tr>
+          </table> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

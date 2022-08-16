@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="style.css" media="all">
+	</head>
+<body>
+	<div style="width: 75%;border-radius: 27px;">
+		<h1>Spotify Sample Machine</h1>
+		<p>how do web design??</p>
+		<div style="border: 0px;margin-left: 0px;padding: 0px;">
+			<form style="display: inline;" action="/index2.html">
+				<input type="text" id="userInput" name="playlist" placeholder="Playlist id" onclick="othername();">
+				<button class="submit" style="display: inline;">Search</button>
+			</form>
+		</div>
+	</div>
+	<!-- <div>
+		<form id="form" onsubmit="return false;">
+			<input style="position:absolute; top:80%; left:5%; width:40%;" type="text" id="userInput" />
+			<input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" onclick="othername();" />
+		</form>
+	</div> -->
+</body>
+</html>
