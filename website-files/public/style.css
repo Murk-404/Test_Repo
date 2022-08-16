@@ -55,9 +55,9 @@ h1 {
   background-color: #191414;
 	font-family: 'spotify';
 }
-h6 {
+h4 {
 	margin: auto;
-	color: #1DB954;
+	color: #FFFFFF;
   background-color: #191414;
 	font-family: 'spotify';
 }
@@ -116,10 +116,17 @@ input:active {
 } */
 
 .center {
+  position: relative;
   margin: auto;
   width: 60%;
   /* border: 3px solid #73AD21;
   padding: 10px; */
+}
+
+.child {
+  position: relative;
+  margin: auto;
+  width: 60%;
 }
 
 /* Style the header links */
